@@ -1,12 +1,18 @@
 framework:
     messenger:
-        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
-        # failure_transport: failed
+        # Catalog consumes nothing (PLAN.md §1) — no consumer transport yet.
+        # symfony/amqp-messenger is still required here for Phase 4's outbox
+        # relay, which publishes directly via AmqpStamp rather than a
+        # queue-bound consumer transport.
+
+        buses:
+            messenger.bus.default:
+                middleware:
+                    # Inert until product-service actually dispatches/handles
+                    # messages (Phase 4) — kept for parity with the other services.
+                    - App\Messenger\CorrelationIdMiddleware
 
         transports:
-            # https://symfony.com/doc/current/messenger.html#transport-configuration
-            # async: '%env(MESSENGER_TRANSPORT_DSN)%'
-            # failed: 'doctrine://default?queue_name=failed'
             sync: 'sync://'
 
         routing:

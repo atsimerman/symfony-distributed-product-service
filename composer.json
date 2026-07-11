@@ -7,16 +7,20 @@
         "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "atsimerman/symfony-distributed-shared-kernel": "@dev",
         "doctrine/doctrine-bundle": "^3.2.3",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.6.7",
+        "symfony/amqp-messenger": "8.0.*",
         "symfony/console": "8.0.*",
         "symfony/dotenv": "8.0.*",
         "symfony/flex": "^2.11",
         "symfony/framework-bundle": "8.0.*",
         "symfony/mailer": "8.0.*",
         "symfony/messenger": "8.0.*",
+        "symfony/monolog-bundle": "^4.0",
         "symfony/runtime": "8.0.*",
+        "symfony/uid": "8.0.*",
         "symfony/yaml": "8.0.*"
     },
     "config": {
@@ -71,5 +75,11 @@
             "require": "8.0.*",
             "docker": false
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/atsimerman/symfony-distributed-shared-kernel.git"
+        }
+    ]
 }

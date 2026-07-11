@@ -21,3 +21,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Applies to every log record on every channel/handler — no attribute-based
+    # registration exists in this Monolog bridge version, so tag explicitly.
+    App\Monolog\CorrelationIdProcessor:
+        tags: [monolog.processor]
