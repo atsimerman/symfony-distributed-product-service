@@ -19,8 +19,7 @@ final readonly class CorrelationIdProcessor implements ProcessorInterface
     public function __construct(
         private RequestStack $requestStack,
         private CorrelationIdContext $messageContext,
-    ) {
-    }
+    ) {}
 
     public function __invoke(LogRecord $record): LogRecord
     {

@@ -14,9 +14,7 @@ use Symfony\Component\Messenger\Middleware\StackInterface;
  */
 final readonly class CorrelationIdMiddleware implements MiddlewareInterface
 {
-    public function __construct(private CorrelationIdContext $context)
-    {
-    }
+    public function __construct(private CorrelationIdContext $context) {}
 
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
     {

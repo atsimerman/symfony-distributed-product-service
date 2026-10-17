@@ -40,7 +40,7 @@ final class CorrelationIdRequestListener
         }
 
         $correlationId = $event->getRequest()->attributes->get('correlationId');
-        if ($correlationId !== null) {
+        if (is_string($correlationId)) {
             $event->getResponse()->headers->set(self::HEADER, $correlationId);
         }
     }
