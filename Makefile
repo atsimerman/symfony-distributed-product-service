@@ -69,3 +69,34 @@ install:
 ## Update composer dependencies
 update:
 	docker compose exec --user "$(USER_UID):$(USER_GID)" php composer update
+
+############################################################
+# 🔍 Quality (runs in the infrastructure stack)
+############################################################
+
+QA_INFRA := ../symfony-distributed-infrastructure
+QA_SERVICE := product-php
+
+## Run all quality gates (rector, cs, stan, test)
+qa:
+	$(MAKE) -C $(QA_INFRA) qa SERVICE=$(QA_SERVICE)
+
+## Run PHPStan (level 10)
+stan:
+	$(MAKE) -C $(QA_INFRA) stan SERVICE=$(QA_SERVICE)
+
+## Check code style (dry-run)
+cs:
+	$(MAKE) -C $(QA_INFRA) cs SERVICE=$(QA_SERVICE)
+
+## Apply code style fixes
+cs-fix:
+	$(MAKE) -C $(QA_INFRA) cs-fix SERVICE=$(QA_SERVICE)
+
+## Preview Rector changes (dry-run)
+rector:
+	$(MAKE) -C $(QA_INFRA) rector SERVICE=$(QA_SERVICE)
+
+## Apply Rector changes
+rector-fix:
+	$(MAKE) -C $(QA_INFRA) rector-fix SERVICE=$(QA_SERVICE)
