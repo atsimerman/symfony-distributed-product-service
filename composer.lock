@@ -4,41 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9350a8370c6c91cf5756a25620d20310",
+    "content-hash": "ffc91a881c9fc417a82341b0e774ee9f",
     "packages": [
         {
             "name": "atsimerman/symfony-distributed-shared-kernel",
-            "version": "dev-main",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atsimerman/symfony-distributed-shared-kernel.git",
-                "reference": "f76e10949734d262fb3ded706e99e3e27efc1237"
+                "reference": "cdcfbecfde0eb74081095006255918b302e4561f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atsimerman/symfony-distributed-shared-kernel/zipball/f76e10949734d262fb3ded706e99e3e27efc1237",
-                "reference": "f76e10949734d262fb3ded706e99e3e27efc1237",
+                "url": "https://api.github.com/repos/atsimerman/symfony-distributed-shared-kernel/zipball/cdcfbecfde0eb74081095006255918b302e4561f",
+                "reference": "cdcfbecfde0eb74081095006255918b302e4561f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
-            "default-branch": true,
+            "require-dev": {
+                "opis/json-schema": "^2",
+                "phpunit/phpunit": "^13.2"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "SharedKernel\\": "src/"
                 }
             },
+            "autoload-dev": {
+                "psr-4": {
+                    "SharedKernel\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "proprietary"
             ],
-            "description": "Shared kernel: aggregate identities, universal value types, marker interfaces, and event contracts. No framework dependencies, no domain logic, no statuses.",
-            "support": {
-                "source": "https://github.com/atsimerman/symfony-distributed-shared-kernel/tree/main",
-                "issues": "https://github.com/atsimerman/symfony-distributed-shared-kernel/issues"
-            },
-            "time": "2026-07-11T18:46:00+00:00"
+            "description": "Shared kernel: aggregate identities, universal value types, and event contracts. No framework dependencies, no domain logic, no statuses.",
+            "time": "2026-10-17T17:28:07+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -4827,9 +4831,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "atsimerman/symfony-distributed-shared-kernel": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

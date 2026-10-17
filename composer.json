@@ -7,7 +7,7 @@
         "php": ">=8.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "atsimerman/symfony-distributed-shared-kernel": "@dev",
+        "atsimerman/symfony-distributed-shared-kernel": "^0.2",
         "doctrine/doctrine-bundle": "^3.2.3",
         "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.6.7",
@@ -79,7 +79,8 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/atsimerman/symfony-distributed-shared-kernel.git"
+            "url": "https://github.com/atsimerman/symfony-distributed-shared-kernel.git",
+            "no-api": true
         }
     ]
 }

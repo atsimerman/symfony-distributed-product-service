@@ -106,7 +106,13 @@ COPY --link infra/docker/frankenphp/conf.d/20-app.prod.ini $PHP_INI_DIR/app.conf
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY --link composer.* symfony.* ./
-RUN set -eux; \
+
+# COMPOSER_AUTH comes from a BuildKit secret (GitHub Actions passes GITHUB_TOKEN)
+# so the token never lands in a layer; local builds work without it (ADR 0006).
+# No `set -x` here: it would print the token into the build log.
+RUN --mount=type=secret,id=composer_auth \
+	set -eu; \
+	if [ -f /run/secrets/composer_auth ]; then export COMPOSER_AUTH="$(cat /run/secrets/composer_auth)"; fi; \
 	composer install --no-cache --prefer-dist --no-dev --no-autoloader --no-scripts --no-progress
 
 # copy sources
