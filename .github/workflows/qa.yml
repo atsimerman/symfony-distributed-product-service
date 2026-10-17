@@ -1,0 +1,20 @@
+name: QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: amqp, apcu, intl, opcache, pdo_pgsql, zip
+          coverage: none
+      - run: composer validate --no-check-publish
+      - run: composer install --no-progress --prefer-dist
+      - run: composer qa
